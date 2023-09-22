@@ -11,6 +11,6 @@ package com.mycompany.mellasclinic;
 public class MellasClinic {
 
     public static void main(String[] args) {
-        System.out.println("Hello World! JULIAIAIIAIAI");
+        System.out.println("Hello World! JULIAIAIIAIAI pinga");
     }
 }
