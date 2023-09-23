@@ -1,5 +1,5 @@
 
-package Classes;
+package ClassesNew;
 
 public class Pessoa {
     protected int ID_pessoa;

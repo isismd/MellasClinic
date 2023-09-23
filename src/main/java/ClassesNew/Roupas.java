@@ -1,4 +1,4 @@
-package classes;
+package ClassesNew;
 
 public class Roupas extends Produto {
 
