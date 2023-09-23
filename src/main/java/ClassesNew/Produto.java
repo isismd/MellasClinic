@@ -1,6 +1,6 @@
 package ClassesNew;
 
-public class Produto {
+public abstract class Produto {
     protected int id;
     protected String nome;
     protected float preco;
@@ -8,9 +8,7 @@ public class Produto {
     protected int quantidade;
     protected float desconto;
     
-    public double calcularDesconto() {
-        return this.desconto;
-    }
+    public abstract double calcularDesconto();
 
     public float getDesconto() {
         return desconto;
