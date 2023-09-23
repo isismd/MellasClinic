@@ -4,7 +4,8 @@ public class Produto {
     protected int id;
     protected String nome;
     protected float preco;
-    protected int quantidadeEstoque;
+    protected int estoque;
+    protected int quantidade;
     protected float desconto;
     
     public double calcularDesconto() {
@@ -43,12 +44,20 @@ public class Produto {
         this.preco = preco;
     }
 
-    public int getQuantidadeEstoque() {
-        return quantidadeEstoque;
+    public int getEstoque() {
+        return estoque;
     }
 
-    public void setQuantidadeEstoque(int quantidadeEstoque) {
-        this.quantidadeEstoque = quantidadeEstoque;
+    public void setEstoque(int estoque) {
+        this.estoque = estoque;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
     
 }

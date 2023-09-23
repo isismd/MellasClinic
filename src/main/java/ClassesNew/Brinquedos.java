@@ -1,6 +1,6 @@
 package ClassesNew;
 
-public class Brinquedos extends Produto {
+public class Brinquedos extends Produto implements Comercializavel{
 
     private int faixaEtaria;
     private String material;
@@ -12,6 +12,11 @@ public class Brinquedos extends Produto {
     @Override
     public double calcularDesconto() {
         return this.getPreco() - (this.getPreco() * 0.08);
+    }
+    
+    @Override
+    public boolean podeSerVendido(int quantidade) {
+        return this.getEstoque()>= this.getQuantidade();
     }
 
     public int getFaixaEtaria() {

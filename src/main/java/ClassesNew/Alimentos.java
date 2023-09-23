@@ -2,7 +2,7 @@ package ClassesNew;
 
 import java.util.Date;
 
-public class Alimentos extends Produto{
+public class Alimentos extends Produto implements Comercializavel{
     private Date dataValidade;
     private Date dataFabricacao;
     private float peso;
@@ -14,6 +14,11 @@ public class Alimentos extends Produto{
     @Override
     public double calcularDesconto() {
         return this.getPreco() - (this.getPreco() * 0.05);
+    }
+    
+    @Override
+    public boolean podeSerVendido(int quantidade) {
+        return this.getEstoque()>= this.getQuantidade();
     }
 
     public Date getDataValidade() {
