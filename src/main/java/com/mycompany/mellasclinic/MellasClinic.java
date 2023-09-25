@@ -73,7 +73,6 @@ public class MellasClinic {
                             case 1:
                                 CadastrarVendedor();
                             case 2:
-                                CadastrarCliente();
                             case 3:
                             // sair
                         }
@@ -113,41 +112,6 @@ public class MellasClinic {
         scanner.nextLine();
 
         Vendedor vendedor = new Vendedor(id++, nome, telefone, email, cidade, endereco, salario);
-
-        listaVendedores.add(vendedor);
-        imprimirListaDeVendedores(listaVendedores);
-
-    }
-
-    public void CadastrarCliente() {
-        listaClientes = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Nome: ");
-        String nome = scanner.nextLine();
-
-        System.out.println("Telefone: ");
-        long telefone = scanner.nextLong();
-        scanner.nextLine();
-
-        System.out.println("Email: ");
-        String email = scanner.nextLine();
-
-        System.out.println("Cidade: ");
-        String cidade = scanner.nextLine();
-
-        System.out.println("Endereço: ");
-        String endereco = scanner.nextLine();
-
-        System.out.println("Salario: ");
-        float salario = scanner.nextFloat();
-        scanner.nextLine();
-        
-            
-
-    public Cliente(int ID_pessoa, String nome, long telefone, String email, String cidade, String endereco, int ID_cliente) {
-
-        Vendedor vendedor = new Vendedor(0, nome, telefone, email, cidade, endereco, salario);
 
         listaVendedores.add(vendedor);
         imprimirListaDeVendedores(listaVendedores);
