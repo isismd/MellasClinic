@@ -54,6 +54,7 @@ public class MellasClinic {
         Scanner scanner = new Scanner(System.in);
         int cadastrar = 0;
         int pessoa = 0;
+        int produto = 0;
 
         while (cadastrar != 3) {
             System.out.println("O que você deseja cadastrar?");
@@ -74,12 +75,33 @@ public class MellasClinic {
                             case 1:
                                 CadastrarVendedor();
                             case 2:
+                              //CLIENTE
+                                
                             case 3:
                             // sair
                         }
                     }
                 case 2:
-                // produtos
+                    while (produto != 4) {
+                        System.out.println("Escolha a categoria");
+                        System.out.println("1 - Alimentos");
+                        System.out.println("2 - Brinquedos");
+                        System.out.println("3 - Roupas");
+                        System.out.println("4 - Sair");
+                        pessoa = scanner.nextInt();
+                        
+                        switch (produto){
+                            case 1:
+                                //alimentos
+                            case 2:
+                                //briquedos
+                            case 3:
+                                //roupas
+                            case 4:
+                                //sair  
+                        }
+                    
+                    }
                 case 3:
                 // 
             }

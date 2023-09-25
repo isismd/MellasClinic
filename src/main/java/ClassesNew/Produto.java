@@ -15,7 +15,7 @@ public abstract class Produto {
         this.estoque = estoque;
         this.quantidade = quantidade;
         this.desconto = desconto;
-                
+         
     }
     public abstract double calcularDesconto();
 
