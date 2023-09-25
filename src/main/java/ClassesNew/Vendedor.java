@@ -2,20 +2,18 @@ package ClassesNew;
 
 public class Vendedor extends Pessoa {
     
-    private int ID_vendedor;
+ 
     private float salario; 
-   
-    public int getID_vendedor() {
-        return ID_vendedor;
+    
+    public Vendedor (int ID_pessoa, String nome, int telefone, String email, String cidade, String endereco, int ID_vendedor, float salario) {
+        super(ID_pessoa, nome, telefone, email, cidade, endereco);
+        this.salario = salario;
     }
-
+   
     public float getSalario() {
         return salario;
     }
 
-    public void setID_vendedor(int ID_vendedor) {
-        this.ID_vendedor = ID_vendedor;
-    }
 
     public void setSalario(float salario) {
         this.salario = salario;

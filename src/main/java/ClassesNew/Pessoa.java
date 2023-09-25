@@ -7,6 +7,15 @@ public abstract class Pessoa {
     protected String email;
     protected String cidade;
     protected String endereco;
+    
+    public Pessoa (int ID_pessoa, String nome, int telefone, String email, String cidade, String endereco) {
+        this.ID_pessoa = ID_pessoa;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.cidade = cidade;
+        this.endereco = endereco;
+    }
 
     public int getID_pessoa() {
         return ID_pessoa;
