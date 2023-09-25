@@ -4,17 +4,14 @@ public class Roupas extends Produto implements Comercializavel{
 
     private String tamanho;
     private String cor;
+    private double desconto;
     
-    public Roupas (int id, String nome, float preco, int estoque, int quantidade, float desconto, String tamanho, String cor){
-        super(id, nome, preco, estoque, quantidade, desconto);
+    public Roupas (int id, String nome, float preco, int estoque, String tamanho, String cor){
+        super(id, nome, preco, estoque);
         this.tamanho = tamanho;
         this.cor = cor;
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public double calcularDesconto() {
         return this.getPreco() - (this.getPreco() * 0.07);
@@ -22,7 +19,15 @@ public class Roupas extends Produto implements Comercializavel{
     
     @Override
     public boolean podeSerVendido(int quantidade) {
-        return this.getEstoque()>= this.getQuantidade();
+        return this.getEstoque()>= quantidade;
+    }
+    
+     public double getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(double desconto) {
+        this.desconto = calcularDesconto();
     }
 
     public String getTamanho() {

@@ -1,6 +1,7 @@
 package com.mycompany.mellasclinic;
 
 import ClassesNew.Cliente;
+import ClassesNew.Roupas;
 import ClassesNew.Vendedor;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,10 @@ public class MellasClinic {
 
     public List<Vendedor> listaVendedores;
     public List<Cliente> listaClientes;
-    int id = 0;
+    public List<Roupas> listaRoupas;
+
+    int idPessoa = 0;
+    int idProduto = 0;
 
     public static void main(String[] args) {
         new MellasClinic();
@@ -75,10 +79,7 @@ public class MellasClinic {
                             case 1:
                                 CadastrarVendedor();
                             case 2:
-                              //CLIENTE
-                                
-                            case 3:
-                            // sair
+                                CadastrarCliente();
                         }
                     }
                 case 2:
@@ -89,18 +90,18 @@ public class MellasClinic {
                         System.out.println("3 - Roupas");
                         System.out.println("4 - Sair");
                         pessoa = scanner.nextInt();
-                        
-                        switch (produto){
+
+                        switch (produto) {
                             case 1:
-                                //alimentos
+                            //alimentos
                             case 2:
-                                //briquedos
+                            //briquedos
                             case 3:
-                                //roupas
+                                cadastrarRoupas();
                             case 4:
-                                //sair  
+                            //sair  
                         }
-                    
+
                     }
                 case 3:
                 // 
@@ -108,8 +109,8 @@ public class MellasClinic {
         }
 
     }
-    
-     public void Listar() {
+
+    public void Listar() {
         Scanner scanner = new Scanner(System.in);
         int listar = 0;
         int pessoa = 0;
@@ -185,7 +186,7 @@ public class MellasClinic {
         float salario = scanner.nextFloat();
         scanner.nextLine();
 
-        Vendedor vendedor = new Vendedor(id++, nome, telefone, email, cidade, endereco, salario);
+        Vendedor vendedor = new Vendedor(idPessoa++, nome, telefone, email, cidade, endereco, salario);
 
         listaVendedores.add(vendedor);
     }
@@ -210,8 +211,33 @@ public class MellasClinic {
         System.out.println("Endereço: ");
         String endereco = scanner.nextLine();
 
-        Cliente cliente = new Cliente(id++, nome, telefone, email, cidade, endereco);
+        Cliente cliente = new Cliente(idPessoa++, nome, telefone, email, cidade, endereco);
         listaClientes.add(cliente);
+
+    }
+
+    public void cadastrarRoupas() {
+        listaRoupas = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Preço: ");
+        float preco = scanner.nextFloat();
+        scanner.nextLine();
+
+        System.out.println("Quantidade estoque: ");
+        int estoque = scanner.nextInt();
+
+        System.out.println("Tamanho: ");
+        String tamanho = scanner.nextLine();
+
+        System.out.println("Cor: ");
+        String cor = scanner.nextLine();
+        
+        Roupas roupa = new Roupas(idProduto++, nome, preco, estoque, tamanho, cor);
+        listaRoupas.add(roupa);
 
     }
 
