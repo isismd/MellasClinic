@@ -15,6 +15,15 @@ public class Animal {
     private String raça;
     private int idade;
     private String sexo;
+    
+    public Animal (int id_animal, String nome, String especie, String raça, int idade, String sexo){
+        this.id_animal = id_animal;
+        this.nome = nome;
+        this.especie = especie;
+        this.raça = raça;
+        this.idade = idade;
+        this.sexo = sexo;
+    }
 
     public int getId_animal() {
         return id_animal;
