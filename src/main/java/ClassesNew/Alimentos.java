@@ -5,10 +5,10 @@ import java.util.Date;
 public class Alimentos extends Produto implements Comercializavel{
     private Date dataValidade;
     private Date dataFabricacao;
-    private float peso;
+    private double peso;
     
-    public Alimentos (int id, String nome, float preco, int estoque, int quantidade, float desconto, Date dataValidade, Date dataFabricacao, float peso){
-        super(id, nome, preco, estoque, quantidade, desconto);
+    public Alimentos (int id, String nome, double preco, int estoque, Date dataValidade, Date dataFabricacao, double peso){
+        super(id, nome, preco, estoque);
         this.dataValidade = dataValidade;
         this.dataFabricacao = dataFabricacao;
         this.peso = peso;
@@ -26,7 +26,7 @@ public class Alimentos extends Produto implements Comercializavel{
     
     @Override
     public boolean podeSerVendido(int quantidade) {
-        return this.getEstoque()>= this.getQuantidade();
+        return this.getEstoque()>= quantidade;
     }
 
     public Date getDataValidade() {
@@ -45,11 +45,11 @@ public class Alimentos extends Produto implements Comercializavel{
         this.dataFabricacao = dataFabricacao;
     }
 
-    public float getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 }

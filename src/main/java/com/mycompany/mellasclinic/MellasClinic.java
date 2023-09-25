@@ -2,8 +2,12 @@ package com.mycompany.mellasclinic;
 
 import ClassesNew.Cliente;
 import ClassesNew.Roupas;
+import ClassesNew.Alimentos;
 import ClassesNew.Vendedor;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,9 +16,12 @@ public class MellasClinic {
     public List<Vendedor> listaVendedores;
     public List<Cliente> listaClientes;
     public List<Roupas> listaRoupas;
+    public List<Alimentos> listaAlimentos;
 
     int idPessoa = 0;
     int idProduto = 0;
+    
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
     public static void main(String[] args) {
         new MellasClinic();
@@ -241,6 +248,39 @@ public class MellasClinic {
 
     }
 
+    
+    public void CadastrarAlimentos() throws ParseException {
+        listaAlimentos = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Preço: ");
+        double preco = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.println("Estoque: ");
+        int estoque = scanner.nextInt();
+
+        System.out.println("Data de Fabricação: ");
+        String data = scanner.nextLine();
+        Date dataFabricacao = formatter.parse(data);
+
+        System.out.println("Data de Validade: ");
+        String dataDois = scanner.nextLine();
+        Date dataValidade = formatter.parse(dataDois);
+        
+        System.out.println("Peso: ");
+        double peso = scanner.nextDouble();
+        scanner.nextDouble();
+
+        Alimentos alimentos = new Alimentos(idProduto++, nome, preco, estoque, dataValidade, dataFabricacao, peso);
+        listaAlimentos.add(alimentos);
+
+    }
+    
+    
     public void imprimirListaDeClientes(List<Cliente> listaClientes) {
         for (Cliente cliente : listaClientes) {
             System.out.println("ID: " + cliente.getID_pessoa());
