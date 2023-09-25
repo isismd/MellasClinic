@@ -4,6 +4,12 @@ public class Brinquedos extends Produto implements Comercializavel{
 
     private int faixaEtaria;
     private String material;
+    
+    public Brinquedos (int id, String nome, float preco, int estoque, int quantidade, float desconto, int faixaEtaria, String material){
+        super(id, nome, preco, estoque, quantidade, desconto);
+        this.faixaEtaria = faixaEtaria;
+        this.material = material;
+    }
 
     /**
      *

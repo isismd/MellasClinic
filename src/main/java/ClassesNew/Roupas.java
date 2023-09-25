@@ -4,6 +4,12 @@ public class Roupas extends Produto implements Comercializavel{
 
     private String tamanho;
     private String cor;
+    
+    public Roupas (int id, String nome, float preco, int estoque, int quantidade, float desconto, String tamanho, String cor){
+        super(id, nome, preco, estoque, quantidade, desconto);
+        this.tamanho = tamanho;
+        this.cor = cor;
+    }
 
     /**
      *

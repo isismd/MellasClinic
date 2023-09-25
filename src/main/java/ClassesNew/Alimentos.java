@@ -7,6 +7,14 @@ public class Alimentos extends Produto implements Comercializavel{
     private Date dataFabricacao;
     private float peso;
     
+    public Alimentos (int id, String nome, float preco, int estoque, int quantidade, float desconto, Date dataValidade, Date dataFabricacao, float peso){
+        super(id, nome, preco, estoque, quantidade, desconto);
+        this.dataValidade = dataValidade;
+        this.dataFabricacao = dataFabricacao;
+        this.peso = peso;
+    
+    }
+    
     /**
      *
      * @return

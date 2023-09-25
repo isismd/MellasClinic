@@ -8,6 +8,15 @@ public abstract class Produto {
     protected int quantidade;
     protected float desconto;
     
+    public Produto (int id, String nome, float preco, int estoque, int quantidade, float desconto) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.estoque = estoque;
+        this.quantidade = quantidade;
+        this.desconto = desconto;
+                
+    }
     public abstract double calcularDesconto();
 
     public float getDesconto() {
