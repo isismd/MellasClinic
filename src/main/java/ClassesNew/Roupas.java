@@ -6,7 +6,7 @@ public class Roupas extends Produto implements Comercializavel{
     private String cor;
     
     public Roupas (int id, String nome, float preco, int estoque, String tamanho, String cor){
-        super(id, nome, preco, estoque);
+        super(id, nome, preco, estoque); 
         this.tamanho = tamanho;
         this.cor = cor;
     }
