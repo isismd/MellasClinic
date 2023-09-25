@@ -108,6 +108,58 @@ public class MellasClinic {
         }
 
     }
+    
+     public void Listar() {
+        Scanner scanner = new Scanner(System.in);
+        int listar = 0;
+        int pessoa = 0;
+        int produto = 0;
+
+        while (listar != 3) {
+            System.out.println("O que você deseja listar?");
+            System.out.println("1 - Pessoas");
+            System.out.println("2 - Produtos");
+            System.out.println("3 - Sair");
+            listar = scanner.nextInt();
+
+            switch (listar) {
+                case 1:
+                    while (pessoa != 3) {
+                        System.out.println("Escolha a categoria para listar");
+                        System.out.println("1 - Vendedor");
+                        System.out.println("2 - Cliente");
+                        System.out.println("3 - Sair");
+                        pessoa = scanner.nextInt();
+                        switch (pessoa) {
+                            case 1:
+                                imprimirListaDeVendedores(listaVendedores);
+                            case 2:
+                                imprimirListaDeClientes(listaClientes);
+                        }
+                    }
+                case 2:
+                    while (produto != 4) {
+                        System.out.println("Escolha a categoria para listar");
+                        System.out.println("1 - Alimentos");
+                        System.out.println("2 - Roupas");
+                        System.out.println("3 - Brinquedos");
+                        System.out.println("4 - Voltar");
+                        pessoa = scanner.nextInt();
+                        switch (pessoa) {
+                            case 1:
+                            //  alimentos
+                            case 2:
+                            // roupas
+                            case 3:
+                            // brinks
+                            case 4:
+                            // sair
+                        }
+                    }
+            }
+        }
+
+    }
 
     public void CadastrarVendedor() {
         listaVendedores = new ArrayList<>();
@@ -136,8 +188,43 @@ public class MellasClinic {
         Vendedor vendedor = new Vendedor(id++, nome, telefone, email, cidade, endereco, salario);
 
         listaVendedores.add(vendedor);
-        imprimirListaDeVendedores(listaVendedores);
+    }
 
+    public void CadastrarCliente() {
+        listaClientes = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Telefone: ");
+        long telefone = scanner.nextLong();
+        scanner.nextLine();
+
+        System.out.println("Email: ");
+        String email = scanner.nextLine();
+
+        System.out.println("Cidade: ");
+        String cidade = scanner.nextLine();
+
+        System.out.println("Endereço: ");
+        String endereco = scanner.nextLine();
+
+        Cliente cliente = new Cliente(id++, nome, telefone, email, cidade, endereco);
+        listaClientes.add(cliente);
+
+    }
+
+    public void imprimirListaDeClientes(List<Cliente> listaClientes) {
+        for (Cliente cliente : listaClientes) {
+            System.out.println("ID: " + cliente.getID_pessoa());
+            System.out.println("Nome: " + cliente.getNome());
+            System.out.println("Telefone: " + cliente.getTelefone());
+            System.out.println("Email: " + cliente.getEmail());
+            System.out.println("Cidade: " + cliente.getCidade());
+            System.out.println("Endereço: " + cliente.getEndereco());
+            System.out.println("-------------------------------");
+        }
     }
 
     public void imprimirListaDeVendedores(List<Vendedor> listaVendedores) {
