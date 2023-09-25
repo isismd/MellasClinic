@@ -1,6 +1,6 @@
 package ClassesNew;
 
-public class Roupas extends Produto implements Comercializavel{
+public class Roupas extends Produto {
 
     private String tamanho;
     private String cor;
@@ -16,11 +16,6 @@ public class Roupas extends Produto implements Comercializavel{
         return this.getPreco() - (this.getPreco() * 0.07);
     }
     
-    @Override
-    public boolean podeSerVendido(int quantidade) {
-        return this.getEstoque()>= quantidade;
-    }
-
     public String getTamanho() {
         return tamanho;
     }

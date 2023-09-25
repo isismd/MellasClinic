@@ -1,6 +1,6 @@
 package ClassesNew;
 
-public abstract class Produto {
+public abstract class Produto implements Comercializavel{
     protected int id;
     protected String nome;
     protected double preco;
@@ -44,6 +44,11 @@ public abstract class Produto {
 
     public void setEstoque(int estoque) {
         this.estoque = estoque;
+    }
+
+    @Override
+    public boolean podeSerVendido(int quantidade) {
+        return this.getEstoque() >= quantidade;
     }
     
 }
