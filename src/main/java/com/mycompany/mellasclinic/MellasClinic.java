@@ -10,6 +10,7 @@ public class MellasClinic {
 
     public List<Vendedor> listaVendedores;
     public List<Cliente> listaClientes;
+    int id = 0;
 
     public static void main(String[] args) {
         new MellasClinic();
@@ -89,7 +90,6 @@ public class MellasClinic {
     public void CadastrarVendedor() {
         listaVendedores = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
-        int id = 0;
 
         System.out.println("Nome: ");
         String nome = scanner.nextLine();
