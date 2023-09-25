@@ -1,5 +1,6 @@
 package com.mycompany.mellasclinic;
 
+import ClassesNew.Brinquedos;
 import ClassesNew.Cliente;
 import ClassesNew.Roupas;
 import ClassesNew.Alimentos;
@@ -17,6 +18,7 @@ public class MellasClinic {
     public List<Cliente> listaClientes;
     public List<Roupas> listaRoupas;
     public List<Alimentos> listaAlimentos;
+    public List<Brinquedos> listaBrinquedos;
 
     int idPessoa = 0;
     int idProduto = 0;
@@ -280,6 +282,29 @@ public class MellasClinic {
 
     }
     
+    public void CadastrarBrinquedos() {
+        listaBrinquedos = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Preço: ");
+        float preco = scanner.nextFloat();
+        scanner.nextLine();
+
+        System.out.println("Estoque: ");
+        int estoque = scanner.nextInt();
+
+        System.out.println("Faixa Etária: ");
+        int faixaEtaria = scanner.nextInt();
+
+        System.out.println("Material: ");
+        String material = scanner.nextLine();
+
+
+     Brinquedos brinquedos = new Brinquedos (idProduto++, nome, preco, estoque, faixaEtaria,  material);
+    }
     
     public void imprimirListaDeClientes(List<Cliente> listaClientes) {
         for (Cliente cliente : listaClientes) {

@@ -5,8 +5,8 @@ public class Brinquedos extends Produto implements Comercializavel{
     private int faixaEtaria;
     private String material;
     
-    public Brinquedos (int id, String nome, float preco, int estoque, int quantidade, float desconto, int faixaEtaria, String material){
-        super(id, nome, preco, estoque, quantidade, desconto);
+    public Brinquedos (int id, String nome, float preco, int estoque, int faixaEtaria, String material){
+        super(id, nome, preco, estoque);
         this.faixaEtaria = faixaEtaria;
         this.material = material;
     }
@@ -20,11 +20,11 @@ public class Brinquedos extends Produto implements Comercializavel{
         return this.getPreco() - (this.getPreco() * 0.08);
     }
     
-    @Override
+     @Override
     public boolean podeSerVendido(int quantidade) {
-        return this.getEstoque()>= this.getQuantidade();
+        return this.getEstoque()>= quantidade;
     }
-
+    
     public int getFaixaEtaria() {
         return faixaEtaria;
     }
