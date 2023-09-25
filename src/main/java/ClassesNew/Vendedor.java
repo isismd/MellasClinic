@@ -1,10 +1,10 @@
 package ClassesNew;
 
-public class Vendedor {
+public class Vendedor extends Pessoa {
     
     private int ID_vendedor;
     private float salario; 
-
+   
     public int getID_vendedor() {
         return ID_vendedor;
     }
@@ -20,6 +20,6 @@ public class Vendedor {
     public void setSalario(float salario) {
         this.salario = salario;
     }
-    
+  
     
 }

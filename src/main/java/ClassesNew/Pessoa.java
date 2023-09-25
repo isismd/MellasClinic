@@ -1,7 +1,6 @@
-
 package ClassesNew;
 
-public class Pessoa {
+public abstract class Pessoa {
     protected int ID_pessoa;
     protected String nome;
     protected int telefone;
