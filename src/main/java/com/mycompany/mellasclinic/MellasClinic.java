@@ -1,93 +1,132 @@
 package com.mycompany.mellasclinic;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.net.URL;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import ClassesNew.Vendedor;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class MellasClinic {
 
+    public List<Vendedor> listaVendedores;
+
     public static void main(String[] args) {
-        // TODO: FAZER AS OPÇÕES FUNCIONAREM
-
-        // CONFIGS JFRAME 
-        JFrame frame = new JFrame("MellasClinic");
-        frame.setSize(600, 200);
-
-        URL imageURL = MellasClinic.class.getResource("/Imgs/icon.png");
-
-        ImageIcon icon = new ImageIcon(imageURL);
-        frame.setIconImage(icon.getImage());
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout());
-
-        Dimension buttonSize = new Dimension(170, 60);
-
-        JButton cadastrarButton = new JButton("Cadastrar");
-        JButton listarArrayButton = new JButton("Listar Array");
-        JButton listarArquivoButton = new JButton("Listar Arquivo Físico");
-        JButton persistirButton = new JButton("Persistir Dados");
-        JButton excluirButton = new JButton("Excluir Item do Array");
-        JButton limparArquivoButton = new JButton("Limpar Arquivo Físico");
-
-        cadastrarButton.setBackground(Color.PINK);
-        listarArrayButton.setBackground(Color.PINK);
-        listarArquivoButton.setBackground(Color.PINK);
-        persistirButton.setBackground(Color.PINK);
-        excluirButton.setBackground(Color.PINK);
-        limparArquivoButton.setBackground(Color.PINK);
-
-        cadastrarButton.setPreferredSize(buttonSize);
-        listarArrayButton.setPreferredSize(buttonSize);
-        listarArquivoButton.setPreferredSize(buttonSize);
-        persistirButton.setPreferredSize(buttonSize);
-        excluirButton.setPreferredSize(buttonSize);
-        limparArquivoButton.setPreferredSize(buttonSize);
-
-        buttonPanel.add(cadastrarButton);
-        buttonPanel.add(listarArrayButton);
-        buttonPanel.add(listarArquivoButton);
-        buttonPanel.add(persistirButton);
-        buttonPanel.add(excluirButton);
-        buttonPanel.add(limparArquivoButton);
-
-        JPanel textPanel = new JPanel();
-        textPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-
-        JLabel labelText = new JLabel("Boas vindas, escolha uma opção para começar");
-        textPanel.add(labelText);
-
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
-
-        mainPanel.add(textPanel, BorderLayout.NORTH);
-        mainPanel.add(buttonPanel, BorderLayout.CENTER);
-
-        frame.add(mainPanel);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-
-        cadastrarButton.addActionListener((ActionEvent e) -> {
-            String[] opcoes = {"Animais", "Funcionários", "Clientes", "Produtos"};
-            String escolha = (String) JOptionPane.showInputDialog(
-                    frame,
-                    "O que você deseja cadastrar?",
-                    "Escolha uma opção",
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    opcoes,
-                    opcoes[0]);
-        });
+        new MellasClinic();
     }
+
+    private MellasClinic() {
+        Scanner scanner = new Scanner(System.in);
+        int opcao = 0;
+
+        while (opcao != 7) {
+            // Opções
+            System.out.println("Boas vindas, escolha uma opção");
+            System.out.println("1 - Cadastrar");
+            System.out.println("2 - Listagem de Array");
+            System.out.println("3 - Listagem do Arquivo Físico");
+            System.out.println("4 - Persistir Dados");
+            System.out.println("5 - Excluir item");
+            System.out.println("6 - Limpar Arquivo Físico");
+            System.out.println("7 - Sair");
+            opcao = scanner.nextInt();
+            
+            switch (opcao) {
+                case 1:
+                    Cadastrar();
+                case 2:
+                // listar
+                case 3:
+                // listar
+                case 4:
+                // persistir
+                case 5:
+                // excluir
+                case 6:
+                // limpar
+            }
+
+        }
+    }
+
+    public void Cadastrar() {
+        Scanner scanner = new Scanner(System.in);
+        int cadastrar = 0;
+        int pessoa = 0;
+
+        while (cadastrar != 3) {
+            System.out.println("O que você deseja cadastrar?");
+            System.out.println("1 - Pessoas");
+            System.out.println("2 - Produtos");
+            System.out.println("3 - Sair");
+            cadastrar = scanner.nextInt();
+            
+            switch (cadastrar) {
+                case 1:
+                    while (pessoa != 3) {
+                        System.out.println("Escolha a categoria");
+                        System.out.println("1 - Vendedor");
+                        System.out.println("2 - Cliente");
+                        System.out.println("3 - Sair");
+                        pessoa = scanner.nextInt();
+                        switch (pessoa) {
+                            case 1:
+                                CadastrarVendedor();
+                            case 2:
+                            // cadastrar cliente
+                            case 3:
+                            // sair
+                        }
+                    }
+                case 2:
+                // produtos
+                case 3:
+                // 
+            }
+        }
+
+    }
+
+    public void CadastrarVendedor() {
+        listaVendedores = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Telefone: ");
+        long telefone = scanner.nextLong();
+        scanner.nextLine();
+
+        System.out.println("Email: ");
+        String email = scanner.nextLine();
+
+        System.out.println("Cidade: ");
+        String cidade = scanner.nextLine();
+
+        System.out.println("Endereço: ");
+        String endereco = scanner.nextLine();
+
+        System.out.println("Salario: ");
+        float salario = scanner.nextFloat();
+        scanner.nextLine();
+
+        Vendedor vendedor = new Vendedor(0, nome, telefone, email, cidade, endereco, salario);
+
+        listaVendedores.add(vendedor);
+        imprimirListaDeVendedores(listaVendedores);
+
+    }
+
+    public void imprimirListaDeVendedores(List<Vendedor> listaVendedores) {
+        for (Vendedor vendedor : listaVendedores) {
+            System.out.println("ID: " + vendedor.getID_pessoa());
+            System.out.println("Nome: " + vendedor.getNome());
+            System.out.println("Telefone: " + vendedor.getTelefone());
+            System.out.println("Email: " + vendedor.getEmail());
+            System.out.println("Cidade: " + vendedor.getCidade());
+            System.out.println("Endereço: " + vendedor.getEndereco());
+            System.out.println("Salário: " + vendedor.getSalario());
+            System.out.println("-------------------------------");
+        }
+    }
+
 }

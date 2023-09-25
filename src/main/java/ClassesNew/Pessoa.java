@@ -3,12 +3,12 @@ package ClassesNew;
 public abstract class Pessoa {
     protected int ID_pessoa;
     protected String nome;
-    protected int telefone;
+    protected long telefone;
     protected String email;
     protected String cidade;
     protected String endereco;
     
-    public Pessoa (int ID_pessoa, String nome, int telefone, String email, String cidade, String endereco) {
+    public Pessoa (int ID_pessoa, String nome, long telefone, String email, String cidade, String endereco) {
         this.ID_pessoa = ID_pessoa;
         this.nome = nome;
         this.telefone = telefone;
@@ -25,7 +25,7 @@ public abstract class Pessoa {
         return nome;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
@@ -49,7 +49,7 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 
