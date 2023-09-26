@@ -5,9 +5,10 @@ import ClassesNew.Cliente;
 import ClassesNew.Roupas;
 import ClassesNew.Alimentos;
 import ClassesNew.Vendedor;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ public class MellasClinic {
 
     int idPessoa = 0;
     int idProduto = 0;
-   
+    
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
     public static void main(String[] args) {
@@ -104,8 +105,7 @@ public class MellasClinic {
 
                         switch (produto) {
                             case 1:
-                                cadastrarAlimentos();
-                                break;
+                            //alimentos
                             case 2:
                                 cadastrarBrinquedos();
                                 break;
@@ -165,8 +165,7 @@ public class MellasClinic {
                         pessoa = scanner.nextInt();
                         switch (pessoa) {
                             case 1:
-                                imprimirListaDeAlimentos(listaAlimentos);
-                                break;
+                            //  alimentos
                             case 2:
                             // roupas
                             case 3:
@@ -261,34 +260,34 @@ public class MellasClinic {
     }
 
     
-    public void cadastrarAlimentos(){
+    public void cadastrarAlimentos() throws ParseException {
+        listaAlimentos = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
 
-            listaAlimentos = new ArrayList<>();
-            Scanner scanner = new Scanner(System.in);
-            
-            System.out.println("Nome: ");
-            String nome = scanner.nextLine();
-            
-            System.out.println("Preço: ");
-            double preco = scanner.nextDouble();
-            scanner.nextLine();
-           
-            System.out.println("Estoque: ");
-            int estoque = scanner.nextInt();
-            
-            System.out.println("Data de Fabricação: ");
-            String dataFabricacao = scanner.nextLine();
-            scanner.nextLine();
-            
-            System.out.println("Data de Validade: ");
-            String dataValidade = scanner.nextLine();
-           
-            
-            System.out.println("Peso: ");
-            double peso = scanner.nextDouble();
-            
-            Alimentos alimentos = new Alimentos(idProduto++, nome, preco, estoque, dataFabricacao, dataValidade, peso);
-            listaAlimentos.add(alimentos);
+        System.out.println("Nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Preço: ");
+        double preco = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.println("Estoque: ");
+        int estoque = scanner.nextInt();
+
+        System.out.println("Data de Fabricação: ");
+        String data = scanner.nextLine();
+        Date dataFabricacao = formatter.parse(data);
+
+        System.out.println("Data de Validade: ");
+        String dataDois = scanner.nextLine();
+        Date dataValidade = formatter.parse(dataDois);
+        
+        System.out.println("Peso: ");
+        double peso = scanner.nextDouble();
+        scanner.nextDouble();
+
+        Alimentos alimentos = new Alimentos(idProduto++, nome, preco, estoque, dataValidade, dataFabricacao, peso);
+        listaAlimentos.add(alimentos);
 
     }
     
@@ -314,9 +313,7 @@ public class MellasClinic {
 
 
      Brinquedos brinquedos = new Brinquedos (idProduto++, nome, preco, estoque, faixaEtaria,  material);
-     listaBrinquedos.add(brinquedos);
     }
-    
     
     public void imprimirListaDeClientes(List<Cliente> listaClientes) {
         for (Cliente cliente : listaClientes) {
@@ -354,20 +351,6 @@ public class MellasClinic {
             System.out.println("-------------------------------");
         }
     }
-    
-    public void imprimirListaDeAlimentos(List<Alimentos> listaAlimentos) {
-        for (Alimentos alimentos : listaAlimentos) {
-            System.out.println("ID: " + alimentos.getIdProduto());
-            System.out.println("Nome: " + alimentos.getNome());
-            System.out.println("Peso: " + alimentos.getPeso());
-            System.out.println("Preço: " + alimentos.getPreco());
-            System.out.println("Estoque: " + alimentos.getEstoque());
-            System.out.println("Data de Fabricação: " + alimentos.getDataFabricacao());
-            System.out.println("Data de Validade: " + alimentos.getDataValidade());
-            System.out.println("-------------------------------");
-        }
-    }
-    
     }
 
 
