@@ -48,6 +48,7 @@ public class MellasClinic {
             switch (opcao) {
                 case 1:
                     Cadastrar();
+                    break;
                 case 2:
                 // listar
                 case 3:
@@ -87,8 +88,10 @@ public class MellasClinic {
                         switch (pessoa) {
                             case 1:
                                 CadastrarVendedor();
+                                break;
                             case 2:
                                 CadastrarCliente();
+                                break;
                         }
                     }
                 case 2:
@@ -146,8 +149,10 @@ public class MellasClinic {
                         switch (pessoa) {
                             case 1:
                                 imprimirListaDeVendedores(listaVendedores);
+                                break;
                             case 2:
                                 imprimirListaDeClientes(listaClientes);
+                                break;
                         }
                     }
                 case 2:
@@ -165,6 +170,7 @@ public class MellasClinic {
                             // roupas
                             case 3:
                                 imprimirListaDeBrinquedos(listaBrinquedos);
+                                break;
                             case 4:
                             // sair
                         }
