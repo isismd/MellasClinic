@@ -1,13 +1,14 @@
 package ClassesNew;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Alimentos extends Produto {
-    private Date dataValidade;
-    private Date dataFabricacao;
+    private String dataValidade;
+    private String dataFabricacao;
     private double peso;
     
-    public Alimentos (int id, String nome, double preco, int estoque, Date dataValidade, Date dataFabricacao, double peso){
+    public Alimentos (int id, String nome, double preco, int estoque, String dataFabricacao, String dataValidade, double peso){
         super(id, nome, preco, estoque);
         this.dataValidade = dataValidade;
         this.dataFabricacao = dataFabricacao;
@@ -24,20 +25,20 @@ public class Alimentos extends Produto {
         return this.getPreco() - (this.getPreco() * 0.05);
     }
 
-    public Date getDataValidade() {
-        return dataValidade;
-    }
-
-    public void setDataValidade(Date dataValidade) {
-        this.dataValidade = dataValidade;
-    }
-
-    public Date getDataFabricacao() {
+    public String getDataFabricacao() {
         return dataFabricacao;
     }
 
-    public void setDataFabricacao(Date dataFabricacao) {
+    public void setDataFabricacao(String dataFabricacao) {
         this.dataFabricacao = dataFabricacao;
+    }
+    
+     public String getDataValidade() {
+        return dataValidade;
+    }
+
+    public void setDataValidade(String dataValidade) {
+        this.dataValidade = dataValidade;
     }
 
     public double getPeso() {
@@ -46,5 +47,9 @@ public class Alimentos extends Produto {
 
     public void setPeso(double peso) {
         this.peso = peso;
+    }
+
+    public String getIdProduto() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
