@@ -164,7 +164,7 @@ public class MellasClinic {
                             case 2:
                             // roupas
                             case 3:
-                            // brinks
+                                imprimirListaDeBrinquedos(listaBrinquedos);
                             case 4:
                             // sair
                         }
