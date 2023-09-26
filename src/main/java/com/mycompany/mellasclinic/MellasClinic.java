@@ -5,8 +5,8 @@ import ClassesNew.Cliente;
 import ClassesNew.Roupas;
 import ClassesNew.Alimentos;
 import ClassesNew.Vendedor;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+// import java.text.SimpleDateFormat;
+// import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -21,9 +21,8 @@ public class MellasClinic {
 
     int idPessoa = 0;
     int idProduto = 0;
-   
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
+    // SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
     public static void main(String[] args) {
         new MellasClinic();
     }
@@ -49,7 +48,8 @@ public class MellasClinic {
                     Cadastrar();
                     break;
                 case 2:
-                // listar
+                    Listar();
+                    break;
                 case 3:
                 // listar
                 case 4:
@@ -93,6 +93,7 @@ public class MellasClinic {
                                 break;
                         }
                     }
+                    break;
                 case 2:
                     while (produto != 4) {
                         System.out.println("Escolha a categoria");
@@ -109,17 +110,14 @@ public class MellasClinic {
                             case 2:
                                 cadastrarBrinquedos();
                                 break;
-                                        
+
                             case 3:
                                 cadastrarRoupas();
                                 break;
-                            case 4:
-                            //sair  
                         }
 
                     }
-                case 3:
-                // 
+                    break;
             }
         }
 
@@ -155,6 +153,7 @@ public class MellasClinic {
                                 break;
                         }
                     }
+                    break;
                 case 2:
                     while (produto != 4) {
                         System.out.println("Escolha a categoria para listar");
@@ -172,10 +171,9 @@ public class MellasClinic {
                             case 3:
                                 imprimirListaDeBrinquedos(listaBrinquedos);
                                 break;
-                            case 4:
-                            // sair
                         }
                     }
+                    break;
             }
         }
 
@@ -254,44 +252,42 @@ public class MellasClinic {
 
         System.out.println("Cor: ");
         String cor = scanner.nextLine();
-        
+
         Roupas roupa = new Roupas(idProduto++, nome, preco, estoque, tamanho, cor);
         listaRoupas.add(roupa);
 
     }
 
-    
-    public void cadastrarAlimentos(){
+    public void cadastrarAlimentos() {
 
-            listaAlimentos = new ArrayList<>();
-            Scanner scanner = new Scanner(System.in);
-            
-            System.out.println("Nome: ");
-            String nome = scanner.nextLine();
-            
-            System.out.println("Preço: ");
-            double preco = scanner.nextDouble();
-            scanner.nextLine();
-           
-            System.out.println("Estoque: ");
-            int estoque = scanner.nextInt();
-            
-            System.out.println("Data de Fabricação: ");
-            String dataFabricacao = scanner.nextLine();
-            scanner.nextLine();
-            
-            System.out.println("Data de Validade: ");
-            String dataValidade = scanner.nextLine();
-           
-            
-            System.out.println("Peso: ");
-            double peso = scanner.nextDouble();
-            
-            Alimentos alimentos = new Alimentos(idProduto++, nome, preco, estoque, dataFabricacao, dataValidade, peso);
-            listaAlimentos.add(alimentos);
+        listaAlimentos = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Preço: ");
+        double preco = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.println("Estoque: ");
+        int estoque = scanner.nextInt();
+
+        System.out.println("Data de Fabricação: ");
+        String dataFabricacao = scanner.nextLine();
+        scanner.nextLine();
+
+        System.out.println("Data de Validade: ");
+        String dataValidade = scanner.nextLine();
+
+        System.out.println("Peso: ");
+        double peso = scanner.nextDouble();
+
+        Alimentos alimentos = new Alimentos(idProduto++, nome, preco, estoque, dataFabricacao, dataValidade, peso);
+        listaAlimentos.add(alimentos);
 
     }
-    
+
     public void cadastrarBrinquedos() {
         listaBrinquedos = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
@@ -312,12 +308,10 @@ public class MellasClinic {
         System.out.println("Material: ");
         String material = scanner.nextLine();
 
-
-     Brinquedos brinquedos = new Brinquedos (idProduto++, nome, preco, estoque, faixaEtaria,  material);
-     listaBrinquedos.add(brinquedos);
+        Brinquedos brinquedos = new Brinquedos(idProduto++, nome, preco, estoque, faixaEtaria, material);
+        listaBrinquedos.add(brinquedos);
     }
-    
-    
+
     public void imprimirListaDeClientes(List<Cliente> listaClientes) {
         for (Cliente cliente : listaClientes) {
             System.out.println("ID: " + cliente.getID_pessoa());
@@ -342,7 +336,7 @@ public class MellasClinic {
             System.out.println("-------------------------------");
         }
     }
-   
+
     public void imprimirListaDeBrinquedos(List<Brinquedos> listaBrinquedos) {
         for (Brinquedos brinquedos : listaBrinquedos) {
             System.out.println("ID: " + brinquedos.getId());
@@ -354,7 +348,7 @@ public class MellasClinic {
             System.out.println("-------------------------------");
         }
     }
-    
+
     public void imprimirListaDeAlimentos(List<Alimentos> listaAlimentos) {
         for (Alimentos alimentos : listaAlimentos) {
             System.out.println("ID: " + alimentos.getIdProduto());
@@ -367,5 +361,5 @@ public class MellasClinic {
             System.out.println("-------------------------------");
         }
     }
-    
-    }
+
+}
