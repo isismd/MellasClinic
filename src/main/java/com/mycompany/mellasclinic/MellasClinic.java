@@ -98,15 +98,18 @@ public class MellasClinic {
                         System.out.println("2 - Brinquedos");
                         System.out.println("3 - Roupas");
                         System.out.println("4 - Sair");
-                        pessoa = scanner.nextInt();
+                        produto = scanner.nextInt();
 
                         switch (produto) {
                             case 1:
                             //alimentos
                             case 2:
-                            //briquedos
+                                cadastrarBrinquedos();
+                                break;
+                                        
                             case 3:
                                 cadastrarRoupas();
+                                break;
                             case 4:
                             //sair  
                         }
@@ -251,7 +254,7 @@ public class MellasClinic {
     }
 
     
-    public void CadastrarAlimentos() throws ParseException {
+    public void cadastrarAlimentos() throws ParseException {
         listaAlimentos = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
@@ -282,7 +285,7 @@ public class MellasClinic {
 
     }
     
-    public void CadastrarBrinquedos() {
+    public void cadastrarBrinquedos() {
         listaBrinquedos = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
@@ -330,5 +333,18 @@ public class MellasClinic {
             System.out.println("-------------------------------");
         }
     }
+   
+    public void imprimirListaDeBrinquedos(List<Brinquedos> listaBrinquedos) {
+        for (Brinquedos brinquedos : listaBrinquedos) {
+            System.out.println("ID: " + brinquedos.getId());
+            System.out.println("Nome: " + brinquedos.getNome());
+            System.out.println("Preço: " + brinquedos.getPreco());
+            System.out.println("Estoque: " + brinquedos.getEstoque());
+            System.out.println("Faixa Etária: " + brinquedos.getFaixaEtaria());
+            System.out.println("Material: " + brinquedos.getMaterial());
+            System.out.println("-------------------------------");
+        }
+    }
+    }
 
-}
+
