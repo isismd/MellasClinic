@@ -4,9 +4,9 @@ public class Roupas extends Produto {
 
     private String tamanho;
     private String cor;
-    
-    public Roupas (int id, String nome, float preco, int estoque, String tamanho, String cor){
-        super(id, nome, preco, estoque); 
+
+    public Roupas(int id, String nome, float preco, int estoque, String tamanho, String cor) {
+        super(id, nome, preco, estoque);
         this.tamanho = tamanho;
         this.cor = cor;
     }
@@ -15,7 +15,13 @@ public class Roupas extends Produto {
     public double calcularDesconto() {
         return this.getPreco() - (this.getPreco() * 0.07);
     }
-    
+
+    @Override
+    public String toString() {
+        return "Roupas ID => " + getId() + "\nNome = " + getNome() + "\nPreço = " + getPreco()
+                + "\nEstoque = " + getEstoque() + "\nTamanho = " + tamanho + "\nCor = " + cor + "\n";
+    }
+
     public String getTamanho() {
         return tamanho;
     }

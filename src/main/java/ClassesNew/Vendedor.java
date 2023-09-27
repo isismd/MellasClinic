@@ -26,4 +26,9 @@ public class Vendedor extends Pessoa {
         this.comissao = comissao;
     }
 
+    @Override
+    public String toString() {
+        return "Vendedor ID => " + getID_pessoa() + "\nNome = " + getNome() + "\nTelefone = " + getTelefone() + "\nEmail = " + getEmail()
+                + "\nCidade = " + getCidade() + "\nEndereco = " + getEndereco() + "\nSalario = " + salario + "\n";
+    }
 }

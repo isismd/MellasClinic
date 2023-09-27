@@ -4,8 +4,8 @@ public class Brinquedos extends Produto {
 
     private int faixaEtaria;
     private String material;
-    
-    public Brinquedos (int id, String nome, float preco, int estoque, int faixaEtaria, String material){
+
+    public Brinquedos(int id, String nome, float preco, int estoque, int faixaEtaria, String material) {
         super(id, nome, preco, estoque);
         this.faixaEtaria = faixaEtaria;
         this.material = material;
@@ -19,7 +19,7 @@ public class Brinquedos extends Produto {
     public double calcularDesconto() {
         return this.getPreco() - (this.getPreco() * 0.08);
     }
-    
+
     public int getFaixaEtaria() {
         return faixaEtaria;
     }
@@ -35,4 +35,11 @@ public class Brinquedos extends Produto {
     public void setMaterial(String material) {
         this.material = material;
     }
+
+    @Override
+    public String toString() {
+        return "Brinquedos ID => " + getId() + "\nNome = " + getNome() + "\nPreço = " + getPreco() + "\nEstoque = " + getEstoque()
+                + "\nFaixa Etária = " + faixaEtaria + "\nMaterial = " + material + "\n";
+    }
+
 }

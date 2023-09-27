@@ -1,8 +1,5 @@
 package ClassesNew;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 public class Alimentos extends Produto {
     private String dataValidade;
     private String dataFabricacao;
@@ -47,9 +44,5 @@ public class Alimentos extends Produto {
 
     public void setPeso(double peso) {
         this.peso = peso;
-    }
-
-    public String getIdProduto() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
