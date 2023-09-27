@@ -184,8 +184,10 @@ public class MellasClinic {
     }
 
     public void imprimirArray(String texto) {
+        System.out.println("--------------- Array Impresso ---------------.");
+
         System.out.println(texto);
-        System.out.println("-------------------------------");
+        System.out.println("----------------------------------------------");
     }
 
     // Opções de persistir
@@ -245,10 +247,13 @@ public class MellasClinic {
             writer.write(formatarLista(lista));
             lista.clear();
         }
+        System.out.println("---- O arquivo foi persistido com sucesso ----");
+        System.out.println("----------------------------------------------");
     }
 
     // Listar arquivo fisico
     public final void ListarArquivo() throws FileNotFoundException {
+        System.out.println("-------------- Arquivo Listado! --------------");
         File arquivo = new File("ArquivoFisico.txt");
         try (Scanner scanner = new Scanner(arquivo)) {
             while (scanner.hasNextLine()) {
@@ -256,6 +261,7 @@ public class MellasClinic {
                 System.out.println(dadosArquivo);
             }
         }
+        System.out.println("----------------------------------------------");
     }
 
     // Limpar arquivo físico
@@ -263,7 +269,8 @@ public class MellasClinic {
         File arquivo = new File("ArquivoFisico.txt");
         try (FileWriter writer = new FileWriter(arquivo)) {
             writer.write("");
-            System.out.println("Conteúdo do arquivo foi apagado.");
+            System.out.println("O conteudo do arquivo foi apagado com sucesso");
+            System.out.println("----------------------------------------------");
         }
 
     }
@@ -307,6 +314,8 @@ public class MellasClinic {
         Vendedor vendedor = new Vendedor(idPessoa++, nome, telefone, email, cidade, endereco, salario);
 
         listaVendedores.add(vendedor);
+        System.out.println("------ Vendedor cadastrado com sucesso! ------");
+        System.out.println("----------------------------------------------");
     }
 
     public void CadastrarCliente() {
@@ -330,6 +339,8 @@ public class MellasClinic {
 
         Cliente cliente = new Cliente(idPessoa++, nome, telefone, email, cidade, endereco);
         listaClientes.add(cliente);
+        System.out.println("------- Cliente cadastrado com sucesso -------");
+        System.out.println("----------------------------------------------");
 
     }
 
@@ -354,6 +365,8 @@ public class MellasClinic {
 
         Roupas roupa = new Roupas(idProduto++, nome, preco, estoque, tamanho, cor);
         listaRoupas.add(roupa);
+        System.out.println("---- Produto roupa cadastrado com sucesso ----");
+        System.out.println("----------------------------------------------");
 
     }
 
@@ -384,6 +397,8 @@ public class MellasClinic {
         Alimentos alimentos = new Alimentos(idProduto++, nome, preco, estoque, dataFabricacao, dataValidade, peso);
         listaAlimentos.add(alimentos);
 
+        System.out.println("-- Produto alimento cadastrado com sucesso! --");
+        System.out.println("----------------------------------------------");
     }
 
     public void cadastrarBrinquedos() {
@@ -407,6 +422,8 @@ public class MellasClinic {
 
         Brinquedos brinquedos = new Brinquedos(idProduto++, nome, preco, estoque, faixaEtaria, material);
         listaBrinquedos.add(brinquedos);
+        System.out.println("-- Produto brinquedo cadastrado com sucesso --");
+        System.out.println("----------------------------------------------");
     }
 
 }
