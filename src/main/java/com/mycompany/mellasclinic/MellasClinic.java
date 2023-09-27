@@ -5,23 +5,15 @@ import ClassesNew.Cliente;
 import ClassesNew.Roupas;
 import ClassesNew.Alimentos;
 import ClassesNew.Vendedor;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 // import java.text.SimpleDateFormat;
 // import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MellasClinic {
 
@@ -44,7 +36,7 @@ public class MellasClinic {
         int opcao = 0;
 
         while (opcao != 8) {
-            // Opções
+            // Opções Gerais
             System.out.println("Boas vindas, escolha uma opção");
             System.out.println("1 - Cadastrar");
             System.out.println("2 - Listagem de Array");
@@ -80,6 +72,7 @@ public class MellasClinic {
         }
     }
 
+    // Opções de Cadastro
     private void Cadastrar() {
         Scanner scanner = new Scanner(System.in);
         int cadastrar = 0;
@@ -94,7 +87,7 @@ public class MellasClinic {
             cadastrar = scanner.nextInt();
 
             switch (cadastrar) {
-                case 1:
+                case 1 -> {
                     while (pessoa != 3) {
                         System.out.println("Escolha a categoria");
                         System.out.println("1 - Vendedor");
@@ -110,8 +103,8 @@ public class MellasClinic {
                                 break;
                         }
                     }
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     while (produto != 4) {
                         System.out.println("Escolha a categoria");
                         System.out.println("1 - Alimentos");
@@ -121,25 +114,23 @@ public class MellasClinic {
                         produto = scanner.nextInt();
 
                         switch (produto) {
-                            case 1:
+                            case 1 ->
                                 cadastrarAlimentos();
-                                break;
-                            case 2:
+                            case 2 ->
                                 cadastrarBrinquedos();
-                                break;
 
-                            case 3:
+                            case 3 ->
                                 cadastrarRoupas();
-                                break;
                         }
 
                     }
-                    break;
+                }
             }
         }
 
     }
 
+    // Opções de listagem do array
     public final void Listar() {
         Scanner scanner = new Scanner(System.in);
         int listar = 0;
@@ -154,7 +145,7 @@ public class MellasClinic {
             listar = scanner.nextInt();
 
             switch (listar) {
-                case 1:
+                case 1 -> {
                     while (pessoa != 3) {
                         System.out.println("Escolha a categoria para listar");
                         System.out.println("1 - Vendedor");
@@ -162,16 +153,14 @@ public class MellasClinic {
                         System.out.println("3 - Sair");
                         pessoa = scanner.nextInt();
                         switch (pessoa) {
-                            case 1:
+                            case 1 ->
                                 imprimirArray(formatarLista(listaVendedores));
-                                break;
-                            case 2:
+                            case 2 ->
                                 imprimirArray(formatarLista(listaClientes));
-                                break;
                         }
                     }
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     while (produto != 4) {
                         System.out.println("Escolha a categoria para listar");
                         System.out.println("1 - Alimentos");
@@ -180,24 +169,27 @@ public class MellasClinic {
                         System.out.println("4 - Voltar");
                         pessoa = scanner.nextInt();
                         switch (pessoa) {
-                            case 1:
+                            case 1 ->
                                 imprimirArray(formatarLista(listaAlimentos));
-                                break;
-                            case 2:
+                            case 2 ->
                                 imprimirArray(formatarLista(listaRoupas));
-                                break;
-                            case 3:
+                            case 3 ->
                                 imprimirArray(formatarLista(listaBrinquedos));
-                                break;
                         }
                     }
-                    break;
+                }
             }
         }
 
     }
 
-    public void Persistir() throws IOException {
+    public void imprimirArray(String texto) {
+        System.out.println(texto);
+        System.out.println("-------------------------------");
+    }
+
+    // Opções de persistir
+    public final void Persistir() throws IOException {
         Scanner scanner = new Scanner(System.in);
         int persistir = 0;
         int pessoa = 0;
@@ -211,7 +203,7 @@ public class MellasClinic {
             persistir = scanner.nextInt();
 
             switch (persistir) {
-                case 1:
+                case 1 -> {
                     while (pessoa != 3) {
                         System.out.println("Escolha a categoria para persistir");
                         System.out.println("1 - Vendedor");
@@ -219,16 +211,14 @@ public class MellasClinic {
                         System.out.println("3 - Sair");
                         pessoa = scanner.nextInt();
                         switch (pessoa) {
-                            case 1:
-                                persistirArquivo(formatarLista(listaVendedores));
-                                break;
-                            case 2:
-                                persistirArquivo(formatarLista(listaClientes));
-                                break;
+                            case 1 ->
+                                persistirArquivo(listaVendedores);
+                            case 2 ->
+                                persistirArquivo(listaClientes);
                         }
                     }
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     while (produto != 4) {
                         System.out.println("Escolha a categoria para persistir");
                         System.out.println("1 - Alimentos");
@@ -237,31 +227,27 @@ public class MellasClinic {
                         System.out.println("4 - Voltar");
                         pessoa = scanner.nextInt();
                         switch (pessoa) {
-                            case 1:
-                                persistirArquivo(formatarLista(listaAlimentos));
-                                break;
-                            case 2:
-                                persistirArquivo(formatarLista(listaRoupas));
-                                break;
-                            case 3:
-                                persistirArquivo(formatarLista(listaBrinquedos));
-                                break;
+                            case 1 ->
+                                persistirArquivo(listaAlimentos);
+                            case 2 ->
+                                persistirArquivo(listaRoupas);
+                            case 3 ->
+                                persistirArquivo(listaBrinquedos);
                         }
                     }
-                    break;
+                }
             }
         }
-
     }
 
-    public final void persistirArquivo(String texto) throws FileNotFoundException, IOException {
+    public final static <Elementos> void persistirArquivo(List<Elementos> lista) throws FileNotFoundException, IOException {
         try (FileWriter myWriter = new FileWriter("ArquivoFisico.txt")) {
-            myWriter.write(texto);
+            myWriter.write(formatarLista(lista));
+            lista.clear();
         }
-
-        // TODO: limpar array!!!
     }
 
+    // Listar arquivo fisico
     public final void ListarArquivo() throws FileNotFoundException {
         File arquivo = new File("ArquivoFisico.txt");
         try (Scanner scanner = new Scanner(arquivo)) {
@@ -272,6 +258,19 @@ public class MellasClinic {
         }
     }
 
+    // Formatação da lista
+    public static <Elementos> String formatarLista(List<Elementos> lista) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Elementos elemento : lista) {
+            sb.append(elemento.toString());
+            sb.append("-----------------------\n");
+        }
+
+        return sb.toString();
+    }
+
+    // Cadastros
     public void CadastrarVendedor() {
         Scanner scanner = new Scanner(System.in);
 
@@ -400,19 +399,4 @@ public class MellasClinic {
         listaBrinquedos.add(brinquedos);
     }
 
-    public void imprimirArray(String texto) {
-        System.out.println(texto);
-        System.out.println("-------------------------------");
-    }
-
-    public static <Elementos> String formatarLista(List<Elementos> lista) {
-        StringBuilder sb = new StringBuilder();
-
-        for (Elementos elemento : lista) {
-            sb.append(elemento.toString());
-            sb.append("\n");
-        }
-
-        return sb.toString();
-    }
 }

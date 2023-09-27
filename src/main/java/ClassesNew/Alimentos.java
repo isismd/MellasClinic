@@ -1,18 +1,19 @@
 package ClassesNew;
 
 public class Alimentos extends Produto {
+
     private String dataValidade;
     private String dataFabricacao;
     private double peso;
-    
-    public Alimentos (int id, String nome, double preco, int estoque, String dataFabricacao, String dataValidade, double peso){
+
+    public Alimentos(int id, String nome, double preco, int estoque, String dataFabricacao, String dataValidade, double peso) {
         super(id, nome, preco, estoque);
         this.dataValidade = dataValidade;
         this.dataFabricacao = dataFabricacao;
         this.peso = peso;
-    
+
     }
-    
+
     /**
      *
      * @return
@@ -22,6 +23,12 @@ public class Alimentos extends Produto {
         return this.getPreco() - (this.getPreco() * 0.05);
     }
 
+    @Override
+    public String toString() {
+        return "Alimentos ID => " + getId() + "\nNome = " + getNome() + "\nPreço = " + getPreco() + "\nEstoque = " + getEstoque()
+                + "\nData de Fabricação = " + dataFabricacao + "\nData de Validade = " + dataValidade + "\nPeso = " + peso + "\n";
+    }
+
     public String getDataFabricacao() {
         return dataFabricacao;
     }
@@ -29,8 +36,8 @@ public class Alimentos extends Produto {
     public void setDataFabricacao(String dataFabricacao) {
         this.dataFabricacao = dataFabricacao;
     }
-    
-     public String getDataValidade() {
+
+    public String getDataValidade() {
         return dataValidade;
     }
 
