@@ -64,7 +64,7 @@ public class MellasClinic {
                 case 5:
                 // excluir
                 case 6:
-                // limpar
+                    LimparArquivo();
                 case 7:
                 // vender
             }
@@ -241,8 +241,8 @@ public class MellasClinic {
     }
 
     public final static <Elementos> void persistirArquivo(List<Elementos> lista) throws FileNotFoundException, IOException {
-        try (FileWriter myWriter = new FileWriter("ArquivoFisico.txt")) {
-            myWriter.write(formatarLista(lista));
+        try (FileWriter writer = new FileWriter("ArquivoFisico.txt")) {
+            writer.write(formatarLista(lista));
             lista.clear();
         }
     }
@@ -256,6 +256,16 @@ public class MellasClinic {
                 System.out.println(dadosArquivo);
             }
         }
+    }
+
+    // Limpar arquivo físico
+    public final void LimparArquivo() throws FileNotFoundException, IOException {
+        File arquivo = new File("ArquivoFisico.txt");
+        try (FileWriter writer = new FileWriter(arquivo)) {
+            writer.write("");
+            System.out.println("Conteúdo do arquivo foi apagado.");
+        }
+
     }
 
     // Formatação da lista
