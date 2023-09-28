@@ -4,6 +4,8 @@ import ClassesNew.Brinquedos;
 import ClassesNew.Cliente;
 import ClassesNew.Roupas;
 import ClassesNew.Alimentos;
+import ClassesNew.Pessoa;
+import ClassesNew.Produto;
 import ClassesNew.Vendedor;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,6 +14,7 @@ import java.io.IOException;
 // import java.text.SimpleDateFormat;
 // import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -62,7 +65,7 @@ public class MellasClinic {
                 case 4:
                     Persistir();
                 case 5:
-                // excluir
+                    Excluir();
                 case 6:
                     LimparArquivo();
                 case 7:
@@ -240,6 +243,63 @@ public class MellasClinic {
                 }
             }
         }
+    }
+
+    public void Excluir() {
+        Scanner scanner = new Scanner(System.in);
+        int excluir = 0;
+        int pessoa = 0;
+        int produto = 0;
+
+        while (excluir != 3) {
+            System.out.println("O que você deseja excluir?");
+            System.out.println("1 - Pessoas");
+            System.out.println("2 - Produtos");
+            System.out.println("3 - Sair");
+            excluir = scanner.nextInt();
+
+            switch (excluir) {
+                case 1:
+                    while (pessoa != 3) {
+                        System.out.println("Escolha a categoria para excluir");
+                        System.out.println("1 - Vendedor");
+                        System.out.println("2 - Cliente");
+                        System.out.println("3 - Sair");
+                        pessoa = scanner.nextInt();
+                        switch (pessoa) {
+                            case 1:
+                                excluirPessoas(listaVendedores);
+                                break;
+                            case 2:
+                                excluirPessoas(listaClientes);
+                                break;
+                        }
+                    }
+                    break;
+                case 2:
+                    while (produto != 4) {
+                        System.out.println("Escolha a categoria para listar");
+                        System.out.println("1 - Alimentos");
+                        System.out.println("2 - Roupas");
+                        System.out.println("3 - Brinquedos");
+                        System.out.println("4 - Voltar");
+                        produto = scanner.nextInt();
+                        switch (produto) {
+                            case 1:
+                                excluirProduto(listaAlimentos);
+                                break;
+                            case 2:
+                                excluirProduto(listaRoupas);
+                                break;
+                            case 3:
+                                excluirProduto(listaBrinquedos);
+                                break;
+                        }
+                    }
+                    break;
+            }
+        }
+
     }
 
     public final static <Elementos> void persistirArquivo(List<Elementos> lista) throws FileNotFoundException, IOException {
@@ -424,6 +484,50 @@ public class MellasClinic {
         listaBrinquedos.add(brinquedos);
         System.out.println("-- Produto brinquedo cadastrado com sucesso --");
         System.out.println("----------------------------------------------");
+    }
+
+    public static <T extends Pessoa> void excluirPessoas(List<T> lista) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o ID a ser excluído: ");
+        int idParaExcluir = scanner.nextInt();
+        Iterator<T> iterador = lista.iterator();
+        boolean achou = false;
+
+        while (iterador.hasNext()) {
+            T objeto = iterador.next();
+            if (objeto.getID_pessoa() == idParaExcluir) {
+                iterador.remove();
+                achou = true;
+                System.out.println("Pessoa com ID " + idParaExcluir + " foi removido da lista.");
+                break;
+            }
+        }
+        if (!achou) {
+            System.out.println("Cliente com ID " + idParaExcluir + " não encontrado na lista.");
+        }
+
+    }
+    
+    public static <T extends Produto> void excluirProduto(List<T> lista) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o ID a ser excluído: ");
+        int idParaExcluir = scanner.nextInt();
+        Iterator<T> iterador = lista.iterator();
+        boolean achou = false;
+
+        while (iterador.hasNext()) {
+            T objeto = iterador.next();
+            if (objeto.getId() == idParaExcluir) {
+                iterador.remove();
+                achou = true;
+                System.out.println("Produto com ID " + idParaExcluir + " foi removido da lista.");
+                break;
+            }
+        }
+        if (!achou) {
+            System.out.println("Produto com ID " + idParaExcluir + " não encontrado na lista.");
+        }
+
     }
 
 }
