@@ -6,15 +6,12 @@ import ClassesNew.Roupas;
 import ClassesNew.Alimentos;
 import ClassesNew.Pessoa;
 import ClassesNew.Produto;
-import ClassesNew.Vendedor;
 import ClassesNew.VendedorAlimenticios;
 import ClassesNew.VendedorNaoAlimenticio;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-// import java.text.SimpleDateFormat;
-// import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -32,7 +29,6 @@ public class MellasClinic {
     int idPessoa = 0;
     int idProduto = 0;
 
-    // SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
     public static void main(String[] args) throws FileNotFoundException, IOException {
         new MellasClinic();
     }
@@ -41,7 +37,7 @@ public class MellasClinic {
         Scanner scanner = new Scanner(System.in);
         int opcao = 0;
 
-        while (opcao != 8) {
+        while (opcao != 7) {
             // Opções Gerais
             System.out.println("Boas vindas, escolha uma opção");
             System.out.println("1 - Cadastrar");
@@ -50,8 +46,7 @@ public class MellasClinic {
             System.out.println("4 - Persistir Dados");
             System.out.println("5 - Excluir item");
             System.out.println("6 - Limpar Arquivo Físico");
-            System.out.println("7 - Vender");
-            System.out.println("8 - Sair");
+            System.out.println("7- Sair");
 
             opcao = scanner.nextInt();
 
@@ -74,8 +69,6 @@ public class MellasClinic {
                 case 6:
                     LimparArquivo();
                     break;
-                case 7:
-                // vender
                 default:
                     break;
             }
@@ -346,7 +339,7 @@ public class MellasClinic {
         System.out.println("----------------------------------------------");
     }
 
-    public void Excluir() {
+    public final void Excluir() {
         Scanner scanner = new Scanner(System.in);
         int excluir = 0;
         int pessoa = 0;
@@ -453,8 +446,8 @@ public class MellasClinic {
 
         return sb.toString();
     }
-
-    // Cadastros
+    
+// Cadastros
     public void CadastrarVendedor(int tipo) {
         Scanner scanner = new Scanner(System.in);
 
