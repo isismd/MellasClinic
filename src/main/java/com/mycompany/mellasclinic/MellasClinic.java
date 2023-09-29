@@ -7,6 +7,8 @@ import ClassesNew.Alimentos;
 import ClassesNew.Pessoa;
 import ClassesNew.Produto;
 import ClassesNew.Vendedor;
+import ClassesNew.VendedorAlimenticios;
+import ClassesNew.VendedorNaoAlimenticio;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -20,7 +22,8 @@ import java.util.Scanner;
 
 public class MellasClinic {
 
-    public List<Vendedor> listaVendedores = new ArrayList<>();
+    public List<VendedorAlimenticios> listaVendedoresAlimenticios = new ArrayList<>();
+    public List<VendedorNaoAlimenticio> listaVendedoresNaoAlimenticios = new ArrayList<>();
     public List<Cliente> listaClientes = new ArrayList<>();
     public List<Roupas> listaRoupas = new ArrayList<>();
     public List<Alimentos> listaAlimentos = new ArrayList<>();
@@ -64,12 +67,17 @@ public class MellasClinic {
                     break;
                 case 4:
                     Persistir();
+                    break;
                 case 5:
                     Excluir();
+                    break;
                 case 6:
                     LimparArquivo();
+                    break;
                 case 7:
                 // vender
+                default:
+                    break;
             }
 
         }
@@ -81,6 +89,7 @@ public class MellasClinic {
         int cadastrar = 0;
         int pessoa = 0;
         int produto = 0;
+        int opcaoTipo = 0;
 
         while (cadastrar != 3) {
             System.out.println("O que você deseja cadastrar?");
@@ -90,24 +99,45 @@ public class MellasClinic {
             cadastrar = scanner.nextInt();
 
             switch (cadastrar) {
-                case 1 -> {
+                case 1:
                     while (pessoa != 3) {
-                        System.out.println("Escolha a categoria");
+                        System.out.println("Escolha a categoria para cadastrar");
                         System.out.println("1 - Vendedor");
                         System.out.println("2 - Cliente");
                         System.out.println("3 - Sair");
                         pessoa = scanner.nextInt();
                         switch (pessoa) {
                             case 1:
-                                CadastrarVendedor();
+                                while (opcaoTipo != 3) {
+
+                                    System.out.println("Qual o setor do vendedor?");
+                                    System.out.println("1 - Vendedor de alimentícios");
+                                    System.out.println("2 - Vendedor de não alimentícios");
+                                    System.out.println("3 - Sair");
+                                    opcaoTipo = scanner.nextInt();
+                                    switch (opcaoTipo) {
+                                        case 1:
+                                            CadastrarVendedor(1);
+                                            break;
+
+                                        case 2:
+                                            CadastrarVendedor(2);
+                                            break;
+
+                                        case 3:
+                                            break;
+                                    }
+                                }
                                 break;
+
                             case 2:
                                 CadastrarCliente();
                                 break;
                         }
                     }
-                }
-                case 2 -> {
+                    break;
+
+                case 2:
                     while (produto != 4) {
                         System.out.println("Escolha a categoria");
                         System.out.println("1 - Alimentos");
@@ -127,18 +157,18 @@ public class MellasClinic {
                         }
 
                     }
-                }
+                    break;
+
+                default:
+                    break;
             }
         }
 
     }
 
-    // Opções de listagem do array
     public final void Listar() {
         Scanner scanner = new Scanner(System.in);
         int listar = 0;
-        int pessoa = 0;
-        int produto = 0;
 
         while (listar != 3) {
             System.out.println("O que você deseja listar?");
@@ -148,7 +178,8 @@ public class MellasClinic {
             listar = scanner.nextInt();
 
             switch (listar) {
-                case 1 -> {
+                case 1:
+                    int pessoa = 0;
                     while (pessoa != 3) {
                         System.out.println("Escolha a categoria para listar");
                         System.out.println("1 - Vendedor");
@@ -156,39 +187,65 @@ public class MellasClinic {
                         System.out.println("3 - Sair");
                         pessoa = scanner.nextInt();
                         switch (pessoa) {
-                            case 1 ->
-                                imprimirArray(formatarLista(listaVendedores));
-                            case 2 ->
+                            case 1:
+                                int opcaoTipo = 0;
+                                while (opcaoTipo != 3) {
+                                    System.out.println("Escolha a categoria");
+                                    System.out.println("1 - Vendedor de alimentícios");
+                                    System.out.println("2 - Vendedor de não alimentícios");
+                                    System.out.println("3 - Sair");
+                                    opcaoTipo = scanner.nextInt();
+                                    switch (opcaoTipo) {
+                                        case 1 ->
+                                            imprimirArray(formatarLista(listaVendedoresAlimenticios));
+
+                                        case 2 ->
+                                            imprimirArray(formatarLista(listaVendedoresNaoAlimenticios));
+
+                                    }
+                                }
+                                break;
+
+                            case 2:
                                 imprimirArray(formatarLista(listaClientes));
+                                break;
                         }
                     }
-                }
-                case 2 -> {
+                    break;
+
+                case 2:
+                    int produto = 0;
                     while (produto != 4) {
                         System.out.println("Escolha a categoria para listar");
                         System.out.println("1 - Alimentos");
                         System.out.println("2 - Roupas");
                         System.out.println("3 - Brinquedos");
-                        System.out.println("4 - Voltar");
-                        pessoa = scanner.nextInt();
-                        switch (pessoa) {
-                            case 1 ->
+                        System.out.println("4 - Sair");
+                        produto = scanner.nextInt();
+                        switch (produto) {
+                            case 1:
                                 imprimirArray(formatarLista(listaAlimentos));
-                            case 2 ->
+                                break;
+                            case 2:
                                 imprimirArray(formatarLista(listaRoupas));
-                            case 3 ->
+                                break;
+                            case 3:
                                 imprimirArray(formatarLista(listaBrinquedos));
+                                break;
+                            default:
+                                break;
                         }
                     }
-                }
+                    break;
+
+                default:
+                    break;
             }
         }
-
     }
 
     public void imprimirArray(String texto) {
         System.out.println("--------------- Array Impresso ---------------.");
-
         System.out.println(texto);
         System.out.println("----------------------------------------------");
     }
@@ -209,6 +266,7 @@ public class MellasClinic {
 
             switch (persistir) {
                 case 1 -> {
+
                     while (pessoa != 3) {
                         System.out.println("Escolha a categoria para persistir");
                         System.out.println("1 - Vendedor");
@@ -216,33 +274,76 @@ public class MellasClinic {
                         System.out.println("3 - Sair");
                         pessoa = scanner.nextInt();
                         switch (pessoa) {
-                            case 1 ->
-                                persistirArquivo(listaVendedores);
-                            case 2 ->
-                                persistirArquivo(listaClientes);
-                        }
-                    }
-                }
-                case 2 -> {
-                    while (produto != 4) {
-                        System.out.println("Escolha a categoria para persistir");
-                        System.out.println("1 - Alimentos");
-                        System.out.println("2 - Roupas");
-                        System.out.println("3 - Brinquedos");
-                        System.out.println("4 - Voltar");
-                        pessoa = scanner.nextInt();
-                        switch (pessoa) {
-                            case 1 ->
-                                persistirArquivo(listaAlimentos);
-                            case 2 ->
-                                persistirArquivo(listaRoupas);
-                            case 3 ->
-                                persistirArquivo(listaBrinquedos);
+                            case 1:
+                                int opcaoTipo = 0;
+                                while (pessoa != 3) {
+                                    System.out.println("Escolha a categoria para persistir");
+                                    System.out.println("1 - Vendedor");
+                                    System.out.println("2 - Cliente");
+                                    System.out.println("3 - Sair");
+                                    opcaoTipo = scanner.nextInt();
+                                    switch (opcaoTipo) {
+                                        case 1:
+                                            while (opcaoTipo != 3) {
+                                                System.out.println("Escolha a categoria");
+                                                System.out.println("1 - Vendedor de alimentícios");
+                                                System.out.println("2 - Vendedor de não alimentícios");
+                                                System.out.println("3 - Sair");
+                                                opcaoTipo = scanner.nextInt();
+                                                switch (opcaoTipo) {
+                                                    case 1 ->
+                                                        persistirArquivo(listaVendedoresAlimenticios);
+                                                    case 2 ->
+                                                        persistirArquivo(listaVendedoresNaoAlimenticios);
+                                                }
+                                            }
+
+                                        case 2:
+                                            persistirArquivo(listaClientes);
+                                        default:
+                                            break;
+
+                                    }
+
+                                }
+                                break;
+
+                            case 2:
+                                while (produto != 4) {
+                                    System.out.println("Escolha a categoria para persistir");
+                                    System.out.println("1 - Alimentos");
+                                    System.out.println("2 - Roupas");
+                                    System.out.println("3 - Brinquedos");
+                                    System.out.println("4 - Sair");
+                                    pessoa = scanner.nextInt();
+                                    switch (pessoa) {
+                                        case 1 ->
+                                            persistirArquivo(listaAlimentos);
+                                        case 2 ->
+                                            persistirArquivo(listaRoupas);
+                                        case 3 ->
+                                            persistirArquivo(listaBrinquedos);
+                                    }
+                                }
+                                break;
+
+                            default:
+                                break;
                         }
                     }
                 }
             }
+
         }
+    }
+
+    public final static <Elementos> void persistirArquivo(List<Elementos> lista) throws FileNotFoundException, IOException {
+        try (FileWriter writer = new FileWriter("ArquivoFisico.txt")) {
+            writer.write(formatarLista(lista));
+            lista.clear();
+        }
+        System.out.println("---- O arquivo foi persistido com sucesso ----");
+        System.out.println("----------------------------------------------");
     }
 
     public void Excluir() {
@@ -250,6 +351,7 @@ public class MellasClinic {
         int excluir = 0;
         int pessoa = 0;
         int produto = 0;
+        int opcaoTipo = 0;
 
         while (excluir != 3) {
             System.out.println("O que você deseja excluir?");
@@ -267,22 +369,35 @@ public class MellasClinic {
                         System.out.println("3 - Sair");
                         pessoa = scanner.nextInt();
                         switch (pessoa) {
-                            case 1:
-                                excluirPessoas(listaVendedores);
-                                break;
-                            case 2:
+                            case 1 -> {
+                                while (opcaoTipo != 3) {
+                                    System.out.println("Escolha a categoria");
+                                    System.out.println("1 - Vendedor de alimentícios");
+                                    System.out.println("2 - Vendedor de não alimentícios");
+                                    System.out.println("3 - Sair");
+                                    opcaoTipo = scanner.nextInt();
+                                    switch (opcaoTipo) {
+                                        case 1 ->
+                                            excluirPessoas(listaVendedoresAlimenticios);
+                                        case 2 ->
+                                            excluirPessoas(listaVendedoresNaoAlimenticios);
+                                    }
+                                }
+                            }
+                            case 2 -> {
                                 excluirPessoas(listaClientes);
-                                break;
+                            }
                         }
                     }
                     break;
+
                 case 2:
                     while (produto != 4) {
-                        System.out.println("Escolha a categoria para listar");
+                        System.out.println("Escolha a categoria para excluir");
                         System.out.println("1 - Alimentos");
                         System.out.println("2 - Roupas");
                         System.out.println("3 - Brinquedos");
-                        System.out.println("4 - Voltar");
+                        System.out.println("4 - Sair");
                         produto = scanner.nextInt();
                         switch (produto) {
                             case 1:
@@ -297,21 +412,13 @@ public class MellasClinic {
                         }
                     }
                     break;
+                default:
+                    break;
             }
         }
-
     }
 
-    public final static <Elementos> void persistirArquivo(List<Elementos> lista) throws FileNotFoundException, IOException {
-        try (FileWriter writer = new FileWriter("ArquivoFisico.txt")) {
-            writer.write(formatarLista(lista));
-            lista.clear();
-        }
-        System.out.println("---- O arquivo foi persistido com sucesso ----");
-        System.out.println("----------------------------------------------");
-    }
-
-    // Listar arquivo fisico
+// Listar arquivo fisico
     public final void ListarArquivo() throws FileNotFoundException {
         System.out.println("-------------- Arquivo Listado! --------------");
         File arquivo = new File("ArquivoFisico.txt");
@@ -348,7 +455,7 @@ public class MellasClinic {
     }
 
     // Cadastros
-    public void CadastrarVendedor() {
+    public void CadastrarVendedor(int tipo) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Nome: ");
@@ -371,11 +478,14 @@ public class MellasClinic {
         float salario = scanner.nextFloat();
         scanner.nextLine();
 
-        Vendedor vendedor = new Vendedor(idPessoa++, nome, telefone, email, cidade, endereco, salario);
+        if (tipo == 1) {
+            VendedorAlimenticios vendedor = new VendedorAlimenticios(idPessoa++, nome, telefone, email, cidade, endereco, salario);
+            listaVendedoresAlimenticios.add(vendedor);
+        } else {
+            VendedorNaoAlimenticio vendedor = new VendedorNaoAlimenticio(idPessoa++, nome, telefone, email, cidade, endereco, salario);
+            listaVendedoresNaoAlimenticios.add(vendedor);
+        }
 
-        listaVendedores.add(vendedor);
-        System.out.println("------ Vendedor cadastrado com sucesso! ------");
-        System.out.println("----------------------------------------------");
     }
 
     public void CadastrarCliente() {
@@ -507,7 +617,7 @@ public class MellasClinic {
         }
 
     }
-    
+
     public static <T extends Produto> void excluirProduto(List<T> lista) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite o ID a ser excluído: ");

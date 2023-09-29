@@ -11,4 +11,9 @@ public class VendedorNaoAlimenticio extends Vendedor implements Gratificacao {
         this.salario += 150.00;
     }
 
+    @Override
+    public String toString() {
+        return "Vendedor ID => " + getID_pessoa() + "\nNome = " + getNome() + "\nTelefone = " + getTelefone() + "\nEmail = " + getEmail()
+                + "\nCidade = " + getCidade() + "\nEndereco = " + getEndereco() + "\n Bonificação == R$ 150.00 " + "\nSalario = " + salario + "\n";
+    }
 }
