@@ -526,6 +526,7 @@ public class MellasClinic {
 
         System.out.println("Quantidade estoque: ");
         int estoque = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("Tamanho: ");
         String tamanho = scanner.nextLine();
@@ -586,6 +587,7 @@ public class MellasClinic {
 
         System.out.println("Faixa Etária: ");
         int faixaEtaria = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("Material: ");
         String material = scanner.nextLine();
