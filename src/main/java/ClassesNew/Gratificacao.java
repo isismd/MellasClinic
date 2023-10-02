@@ -4,6 +4,7 @@ public interface Gratificacao {
 
     /**
      *
+     * @return 
      */
-    void bonificacao();
+    double bonificacao();
 }

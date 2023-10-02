@@ -258,8 +258,7 @@ public class MellasClinic {
             persistir = scanner.nextInt();
 
             switch (persistir) {
-                case 1 -> {
-
+                case 1:
                     while (pessoa != 3) {
                         System.out.println("Escolha a categoria para persistir");
                         System.out.println("1 - Vendedor");
@@ -269,64 +268,47 @@ public class MellasClinic {
                         switch (pessoa) {
                             case 1:
                                 int opcaoTipo = 0;
-                                while (pessoa != 3) {
-                                    System.out.println("Escolha a categoria para persistir");
-                                    System.out.println("1 - Vendedor");
-                                    System.out.println("2 - Cliente");
+                                while (opcaoTipo != 3) {
+                                    System.out.println("Escolha a categoria");
+                                    System.out.println("1 - Vendedor de alimentícios");
+                                    System.out.println("2 - Vendedor de não alimentícios");
                                     System.out.println("3 - Sair");
                                     opcaoTipo = scanner.nextInt();
                                     switch (opcaoTipo) {
-                                        case 1:
-                                            while (opcaoTipo != 3) {
-                                                System.out.println("Escolha a categoria");
-                                                System.out.println("1 - Vendedor de alimentícios");
-                                                System.out.println("2 - Vendedor de não alimentícios");
-                                                System.out.println("3 - Sair");
-                                                opcaoTipo = scanner.nextInt();
-                                                switch (opcaoTipo) {
-                                                    case 1 ->
-                                                        persistirArquivo(listaVendedoresAlimenticios);
-                                                    case 2 ->
-                                                        persistirArquivo(listaVendedoresNaoAlimenticios);
-                                                }
-                                            }
-
-                                        case 2:
-                                            persistirArquivo(listaClientes);
-                                        default:
-                                            break;
-
-                                    }
-
-                                }
-                                break;
-
-                            case 2:
-                                while (produto != 4) {
-                                    System.out.println("Escolha a categoria para persistir");
-                                    System.out.println("1 - Alimentos");
-                                    System.out.println("2 - Roupas");
-                                    System.out.println("3 - Brinquedos");
-                                    System.out.println("4 - Sair");
-                                    pessoa = scanner.nextInt();
-                                    switch (pessoa) {
                                         case 1 ->
-                                            persistirArquivo(listaAlimentos);
+                                            persistirArquivo(listaVendedoresAlimenticios);
                                         case 2 ->
-                                            persistirArquivo(listaRoupas);
-                                        case 3 ->
-                                            persistirArquivo(listaBrinquedos);
+                                            persistirArquivo(listaVendedoresNaoAlimenticios);
                                     }
                                 }
-                                break;
-
+                            case 2:
+                                persistirArquivo(listaClientes);
                             default:
                                 break;
                         }
                     }
-                }
-            }
+                case 2:
+                    while (produto != 4) {
+                        System.out.println("Escolha a categoria para persistir");
+                        System.out.println("1 - Alimentos");
+                        System.out.println("2 - Roupas");
+                        System.out.println("3 - Brinquedos");
+                        System.out.println("4 - Sair");
+                        pessoa = scanner.nextInt();
+                        switch (pessoa) {
+                            case 1 ->
+                                persistirArquivo(listaAlimentos);
+                            case 2 ->
+                                persistirArquivo(listaRoupas);
+                            case 3 ->
+                                persistirArquivo(listaBrinquedos);
+                        }
+                    }
+                    break;
 
+                default:
+                    break;
+            }
         }
     }
 
@@ -446,7 +428,7 @@ public class MellasClinic {
 
         return sb.toString();
     }
-    
+
 // Cadastros
     public void CadastrarVendedor(int tipo) {
         Scanner scanner = new Scanner(System.in);
