@@ -19,7 +19,7 @@ public class Roupas extends Produto {
     @Override
     public String toString() {
         return "Roupas ID => " + getId() + "\nNome = " + getNome() + "\nPreço = " + getPreco()
-                + "\nEstoque = " + getEstoque() + "\nTamanho = " + tamanho + "\nCor = " + cor + "\n";
+                + "\nEstoque = " + getEstoque() + "\nTamanho = " + tamanho + "\nCor = " + cor + "\nPode ser vendido = " + podeSerVendido(0) + "\nDesconto = " + calcularDesconto() + "\n";
     }
 
     public String getTamanho() {

@@ -481,8 +481,16 @@ public class MellasClinic {
 
         System.out.println("Endereço: ");
         String endereco = scanner.nextLine();
-
+        
+        System.out.println("Deseja tornar esse cliente elegível para desconto? 1 - Sim; 2 - Não");
+        int resposta = scanner.nextInt();
+       
         Cliente cliente = new Cliente(idPessoa++, nome, telefone, email, cidade, endereco);
+
+        if (resposta == 1){
+            cliente.tornarElegivelParaDesconto();
+        }
+        
         listaClientes.add(cliente);
         System.out.println("------- Cliente cadastrado com sucesso -------");
         System.out.println("----------------------------------------------");

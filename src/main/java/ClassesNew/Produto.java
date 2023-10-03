@@ -14,8 +14,12 @@ public abstract class Produto {
     }
     public abstract double calcularDesconto();
     
-    public boolean podeSerVendido(int quantidade) {
-        return this.getEstoque() >= quantidade;
+    public String podeSerVendido(int quantidade) {
+        if (this.getEstoque() >= quantidade) {
+            return "Sim";
+        } else {
+            return "Não";
+        }
     }
 
     public String getNome() {
