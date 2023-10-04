@@ -26,7 +26,7 @@ public class Alimentos extends Produto {
     @Override
     public String toString() {
         return "Alimentos ID => " + getId() + "\nNome = " + getNome() + "\nPreço = " + getPreco() + "\nEstoque = " + getEstoque()
-                + "\nData de Fabricação = " + dataFabricacao + "\nData de Validade = " + dataValidade + "\nPeso = " + peso + "\nPode ser vendido = " + podeSerVendido(0) + "\nDesconto = " + calcularDesconto() + "\n";
+                + "\nData de Fabricação = " + dataFabricacao + "\nData de Validade = " + dataValidade + "\nPeso = " + peso + "\nPode ser vendido = " + podeSerVendido(0) + "\nValor com desconto = " + calcularDesconto() + "\n";
     }
 
     public String getDataFabricacao() {

@@ -15,7 +15,7 @@ public abstract class Produto {
     public abstract double calcularDesconto();
     
     public String podeSerVendido(int quantidade) {
-        if (this.getEstoque() >= quantidade) {
+        if (this.getEstoque() > quantidade) {
             return "Sim";
         } else {
             return "Não";

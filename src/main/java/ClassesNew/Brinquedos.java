@@ -39,7 +39,7 @@ public class Brinquedos extends Produto {
     @Override
     public String toString() {
         return "Brinquedos ID => " + getId() + "\nNome = " + getNome() + "\nPreço = " + getPreco() + "\nEstoque = " + getEstoque()
-                + "\nFaixa Etária = " + faixaEtaria + "\nMaterial = " + material + "\nPode ser vendido = " + podeSerVendido(0) + "\nDesconto = " + calcularDesconto() + "\n";
+                + "\nFaixa Etária = " + faixaEtaria + "\nMaterial = " + material + "\nPode ser vendido = " + podeSerVendido(0) + "\nValor com desconto = " + calcularDesconto() + "\n";
     }
 
 }
