@@ -332,6 +332,10 @@ public class MellasClinic {
     }
 
     public final static <Elementos> void persistirArquivo(List<Elementos> lista) throws FileNotFoundException, IOException {
+        if (lista.isEmpty()) {
+            System.out.println("A lista está vazia. Para persisitr é necessário cadastro.");
+            return;
+        }
         try (FileWriter writer = new FileWriter("ArquivoFisico.txt")) {
             writer.write(formatarLista(lista));
             lista.clear();
