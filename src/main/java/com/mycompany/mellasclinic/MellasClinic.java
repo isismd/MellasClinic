@@ -275,10 +275,17 @@ public class MellasClinic {
                                     System.out.println("3 - Sair");
                                     opcaoTipo = scanner.nextInt();
                                     switch (opcaoTipo) {
-                                        case 1 ->
+                                        case 1 -> {
                                             persistirArquivo(listaVendedoresAlimenticios);
-                                        case 2 ->
+                                            break;
+                                        }
+                                        case 2 -> {
                                             persistirArquivo(listaVendedoresNaoAlimenticios);
+                                            break;
+                                        }
+                                        default -> {
+                                            break;
+                                        }
                                     }
                                 }
                             case 2:
@@ -304,7 +311,7 @@ public class MellasClinic {
                                 persistirArquivo(listaBrinquedos);
                             default -> {
                                 break;
-                    }
+                            }
                         }
                     }
                     break;
@@ -484,16 +491,16 @@ public class MellasClinic {
 
         System.out.println("Endereço: ");
         String endereco = scanner.nextLine();
-        
+
         System.out.println("Deseja tornar esse cliente elegível para desconto? 1 - Sim; 2 - Não");
         int resposta = scanner.nextInt();
-       
+
         Cliente cliente = new Cliente(idPessoa++, nome, telefone, email, cidade, endereco);
 
-        if (resposta == 1){
+        if (resposta == 1) {
             cliente.tornarElegivelParaDesconto();
         }
-        
+
         listaClientes.add(cliente);
         System.out.println("------- Cliente cadastrado com sucesso -------");
         System.out.println("----------------------------------------------");
