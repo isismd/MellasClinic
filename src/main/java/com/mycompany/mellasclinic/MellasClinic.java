@@ -335,13 +335,14 @@ public class MellasClinic {
         if (lista.isEmpty()) {
             System.out.println("A lista está vazia. Para persisitr é necessário cadastro.");
             return;
+        } else {
+            try (FileWriter writer = new FileWriter("ArquivoFisico.txt")) {
+                writer.write(formatarLista(lista));
+                lista.clear();
+            }
+            System.out.println("---- O arquivo foi persistido com sucesso ----");
+            System.out.println("----------------------------------------------");
         }
-        try (FileWriter writer = new FileWriter("ArquivoFisico.txt")) {
-            writer.write(formatarLista(lista));
-            lista.clear();
-        }
-        System.out.println("---- O arquivo foi persistido com sucesso ----");
-        System.out.println("----------------------------------------------");
     }
 
     public final void Excluir() {
