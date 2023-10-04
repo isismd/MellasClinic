@@ -1,0 +1,9 @@
+Roupas ID => 0
+Nome = 2313
+Preço = 321.0
+Estoque = 321
+Tamanho = 321
+Cor = 312
+Pode ser vendido = Sim
+Valor com desconto = 298.53
+-----------------------
