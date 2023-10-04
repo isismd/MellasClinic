@@ -1,0 +1,10 @@
+Vendedor ID => 0
+Nome = Isis
+Telefone = 1312
+Email = 321
+Cidade = 321
+Endereco = 312
+ Bonificação == R$ 150.00 
+Salario = 321.0
+Salario Total = 421.0
+-----------------------

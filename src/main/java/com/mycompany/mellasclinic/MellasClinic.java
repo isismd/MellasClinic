@@ -288,8 +288,11 @@ public class MellasClinic {
                                         }
                                     }
                                 }
-                            case 2:
+                                break;
+                            case 2: {
                                 persistirArquivo(listaClientes);
+                                break;
+                            }
                             default:
                                 break;
                         }
@@ -303,12 +306,18 @@ public class MellasClinic {
                         System.out.println("4 - Sair");
                         produto = scanner.nextInt();
                         switch (produto) {
-                            case 1 ->
+                            case 1 -> {
                                 persistirArquivo(listaAlimentos);
-                            case 2 ->
+                                break;
+                            }
+                            case 2 -> {
                                 persistirArquivo(listaRoupas);
-                            case 3 ->
+                                break;
+                            }
+                            case 3 -> {
                                 persistirArquivo(listaBrinquedos);
+                                break;
+                            }
                             default -> {
                                 break;
                             }
