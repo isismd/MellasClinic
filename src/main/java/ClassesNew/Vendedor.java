@@ -8,8 +8,7 @@ public class Vendedor extends Pessoa {
 
     public Vendedor(int ID_pessoa, String nome, long telefone, String email, String cidade, String endereco, float salario) {
         super(ID_pessoa, nome, telefone, email, cidade, endereco);
-        this.salario = salario;
-      
+        this.salario = salario; 
     }
     
     public double getSalario() {

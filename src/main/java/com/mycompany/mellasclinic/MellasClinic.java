@@ -489,6 +489,7 @@ public class MellasClinic {
 
     public void CadastrarCliente() {
         Scanner scanner = new Scanner(System.in);
+        Cliente cliente;
 
         System.out.println("Nome: ");
         String nome = scanner.nextLine();
@@ -503,13 +504,21 @@ public class MellasClinic {
         System.out.println("Cidade: ");
         String cidade = scanner.nextLine();
 
-        System.out.println("Endereço: ");
-        String endereco = scanner.nextLine();
+        System.out.println("Deseja cadastrar o endereço desse cliente para futuras entregas? 1 - Sim; 2 - Não");
+        int respostaEndereco = scanner.nextInt();
+        String endereco = "";
+
+        if (respostaEndereco == 1) {
+            scanner.nextLine();
+            System.out.println("Endereço: ");
+             endereco = scanner.nextLine();
+            cliente = new Cliente(idPessoa++, nome, telefone, email, cidade, endereco);
+        } else {
+            cliente = new Cliente(idPessoa++, nome, telefone, email, cidade);
+        }
 
         System.out.println("Deseja tornar esse cliente elegível para desconto? 1 - Sim; 2 - Não");
         int resposta = scanner.nextInt();
-
-        Cliente cliente = new Cliente(idPessoa++, nome, telefone, email, cidade, endereco);
 
         if (resposta == 1) {
             cliente.tornarElegivelParaDesconto();

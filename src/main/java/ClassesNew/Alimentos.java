@@ -11,13 +11,8 @@ public class Alimentos extends Produto {
         this.dataValidade = dataValidade;
         this.dataFabricacao = dataFabricacao;
         this.peso = peso;
-
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public double calcularDesconto() {
         return this.getPreco() - (this.getPreco() * 0.05);
